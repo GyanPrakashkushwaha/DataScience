@@ -1,3 +1,4 @@
 import IfNameMain
+print(IfNameMain)
 
-print(IfNameMain.add(2,3))
+# print('this is ', __name__,'module')

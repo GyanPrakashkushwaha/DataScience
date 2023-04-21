@@ -1,38 +1,12 @@
-def printst(string):
-    return f"This is a string{string}"
-
-
-
-def add(num1,num2):
-    return num1 +num2 +3
-
-def multiple(num3=4,num4 = 5):
-    return num3*num4
-
-
-print("this is modul name", __name__)
-
-
 
 
 if __name__ == '__main__':
-    print(printst("If Name Main"))
-    printst(add(3,4))
+    print('hello this is if __name__ == __main__ module')
+
+print('this is ', __name__,'module')
+
+""" jb hm kissi module ko execute krte h to agr usspe if __name__ == '__main__': ye code likha huaa h to ye bhii execute ho jaega but
+agr hm if __name__ == '__main__': likhe hue module ko kissi dusre module pe import krte h aur fir execute krte h to jo kuchh bhii 
+if __name__ == '__main__': iss module ke andr likha hota h vo execute niii hota h """
 
 
-""" agr hm if __name__ == '__main__': ko agr hm execute nii krte h to modul ke poore methods and functions execute ho jte h 
-aur agr isse likh ke isske andr kuchh likh dete to only uss modul ka vii function execute hota h jo uss if __name__ == '__main__':'
- block ke andr hota
- =============================================================
- to experiment this -
- simply comment down krke dekh luga
- """
-
-
-
-
-
-
-
-print(printst("If Name Main"))
-printst(add(3,4))
