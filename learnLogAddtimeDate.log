@@ -1,5 +1,0 @@
-[ 26/Apr/2023 05:43:57 PM ] 13 root - DEBUG -  debug message
-[ 26/Apr/2023 05:43:57 PM ] 14 root - INFO - info message
-[ 26/Apr/2023 05:43:57 PM ] 15 root - WARNING - warning message
-[ 26/Apr/2023 05:43:57 PM ] 16 root - ERROR - error message
-[ 26/Apr/2023 05:43:57 PM ] 17 root - CRITICAL - critical message
