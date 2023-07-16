@@ -161,3 +161,5 @@ cython_debug/
 
 
 NLP/Transformers/basics/BertModel
+
+NLP/Transformers/fine-Tuning/TFAutoModelForSequenceClassification_PretrainedModel
