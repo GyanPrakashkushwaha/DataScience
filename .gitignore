@@ -1,3 +1,7 @@
+
+# ignoring SECRET KEY
+NLP/langchain/secretKey.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
