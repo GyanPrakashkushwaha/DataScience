@@ -2,6 +2,9 @@
 # ignoring SECRET KEY
 NLP/langchain/secretKey.py
 
+# ignoring the dataset
+NLP/LSTM/fake_news_classifier/train.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
