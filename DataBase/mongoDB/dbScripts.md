@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+</head>
+<body>
   body {
     font-size: 18px;
     line-height: 1.6;
