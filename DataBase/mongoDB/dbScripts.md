@@ -91,28 +91,22 @@
 
   <h2>📖 Read</h2>
   <pre>
-    <!-- 📖 Find a single document -->
-    📖 db.coll.findOne()
+    📖 db.coll.find().pretty() <!-- Find documents and pretty-print the results -->
+    📖 db.coll.find({name: "Max", age: 32}) <!-- Find documents with multiple conditions (implicit logical "AND") -->
+    📖 db.coll.find({date: ISODate("2020-09-25T13:57:17.180Z")}) <!-- Find documents with a specific date -->
+    📖 db.coll.find({name: "Max", age: 32}).explain("executionStats") <!-- Explain query execution statistics -->
+    📖 db.coll.distinct("name") <!-- Get distinct values for a field -->
+    📖 db.coll.count({age: 32}) <!-- Count documents matching a condition (estimation) -->
+    📖 db.coll.countDocuments({age: 32}) <!-- Count documents using aggregation pipeline (accurate count) -->
     
-    <!-- 📖 Find documents (returns a cursor) -->
-    📖 db.coll.find()
+    <!-- 📖 Comparison operators -->
+    📖 db.coll.find({"year": {$gt: 1970}}) <!-- Greater than -->
+    📖 db.coll.find({"year": {$gte: 1970}}) <!-- Greater than or equal to -->
+    📖 db.coll.find({"year": {$lt: 1970}}) <!-- Less than -->
+    📖 db.coll.find({"year": {$lte: 1970}}) <!-- Less than or equal to -->
+    📖 db.coll.find({"year": {$ne: 1970}}) <!-- Not equal to -->
+    📖 db.coll.find({"year": {$in: [1958, 1959]}}) <!-- In an array of values -->
+    📖 db.coll.find({"year": {$nin: [1958, 1959]}}) <!-- Not in an array of values -->
     
-    <!-- 📖 Find documents and pretty-print the results -->
-    📖 db.coll.find().pretty()
-    
-    <!-- 📖 Find documents with multiple conditions (implicit logical "AND") -->
-    📖 db.coll.find({name: "Max", age: 32})
-    
-    <!-- 📖 Find documents with a specific date -->
-    📖 db.coll.find({date: ISODate("2020-09-25T13:57:17.180Z")})
-    
-    <!-- 📖 Explain query execution statistics -->
-    📖 db.coll.find({name: "Max", age: 32}).explain("executionStats")
-    
-    <!-- 📖 Get distinct values for a field -->
-    📖 db.coll.distinct("name")
-    
-    <!-- 📖 Count documents matching a condition (estimation) -->
-    📖 db.coll.count({age: 32})
-    
-    <!-- 
+    <!-- 📖 Logical operators -->
+    📖 db.coll.find({name:{$not: {$eq: "Max"}}}) <!-- Negation -->
