@@ -3,30 +3,7 @@
 <head>
 </head>
 <body>
-  body {
-    font-size: 18px;
-    line-height: 1.6;
-  }
-  pre {
-    font-size: 20px;
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-  }
-  h1, h2 {
-    color: #007bff;
-    margin-bottom: 5px;
-  }
-  h2 {
-    color: #28a745;
-    font-size: 24px;
-  }
-  h1::after, h2::after {
-    content: " ⭐";
-  }
-</body>
-</html>
+</head>
 <body>
   <h1>🌟 Connect to MongoDB Shell</h1>
   <pre>
