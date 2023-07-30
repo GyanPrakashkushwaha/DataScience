@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MongoDB Shell Commands</title>
+  
 </head>
 <body>
   <h1>Connect MongoDB Shell</h1>
