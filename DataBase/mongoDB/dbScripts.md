@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <h1 style="font-size: 24px; color: #007bff;">🌟 Connect to MongoDB Shell</h1>
 </head>
 <body>
   <h1>🌟 Connect to MongoDB Shell</h1>
@@ -20,13 +19,13 @@
   </pre>
 
   <h1>📚 Show Databases</h1>
-  <pre>
+  <pre><h1>
     <!-- 🎯 Show all available databases -->
     🎯 show dbs
     
     <!-- 🎯 Print the current database -->
     🎯 db
-  </pre>
+  <h1></pre>
 
   <h1>🔄 Switch Database</h1>
   <pre>
