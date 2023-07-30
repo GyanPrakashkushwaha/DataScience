@@ -25,8 +25,8 @@
   h1::after, h2::after {
     content: " ⭐";
   }
-</style>
-</head>
+</body>
+</html>
 <body>
   <h1>🌟 Connect to MongoDB Shell</h1>
   <pre>
