@@ -3,8 +3,6 @@
 <head>
 </head>
 <body>
-</head>
-<body>
   <h1>🌟 Connect to MongoDB Shell</h1>
   <pre>
     <!-- 🚀 Connect to the default MongoDB instance -->
