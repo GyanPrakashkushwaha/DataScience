@@ -19,13 +19,13 @@
   </pre>
 
   <h1>📚 Show Databases</h1>
-  <pre><h1>
+  <pre><h2>
     <!-- 🎯 Show all available databases -->
     🎯 show dbs
     
     <!-- 🎯 Print the current database -->
     🎯 db
-  <h1></pre>
+  <h2></pre>
 
   <h1>🔄 Switch Database</h1>
   <pre>
