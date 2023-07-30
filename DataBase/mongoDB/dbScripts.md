@@ -1,35 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  pre {
+    font-size: 20px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  h1, h2 {
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  h2 {
+    color: #28a745;
+    font-size: 24px;
+  }
+  h1::after, h2::after {
+    content: " ⭐";
+  }
+</style>
 </head>
 <body>
-  <h1>🌟 Connect to MongoDB Shell 🌟</h1>
+  <h1>🌟 Connect to MongoDB Shell</h1>
   <pre>
-    🚀 mongo # connects to mongodb://127.0.0.1:27017 by default
-    🚀 mongo --host &lt;host&gt; --port &lt;port&gt; -u &lt;user&gt; -p &lt;pwd&gt; # omit the password if you want a prompt
+    <!-- 🚀 Connect to the default MongoDB instance -->
+    🚀 mongo
+    
+    <!-- 🚀 Connect to a specific host and port with credentials -->
+    🚀 mongo --host &lt;host&gt; --port &lt;port&gt; -u &lt;user&gt; -p &lt;pwd&gt;
+    
+    <!-- 🚀 Connect to a remote MongoDB server -->
     🚀 mongo "mongodb://192.168.1.1:27017"
-    🚀 mongo "mongodb+srv://cluster-name.abcde.mongodb.net/&lt;dbname&gt;" --username &lt;username&gt; # MongoDB Atlas
+    
+    <!-- 🚀 Connect to MongoDB Atlas -->
+    🚀 mongo "mongodb+srv://cluster-name.abcde.mongodb.net/&lt;dbname&gt;" --username &lt;username&gt;
   </pre>
 
   <h1>📚 Show Databases</h1>
   <pre>
+    <!-- 🎯 Show all available databases -->
     🎯 show dbs
-    🎯 db // prints the current database
+    
+    <!-- 🎯 Print the current database -->
+    🎯 db
   </pre>
 
   <h1>🔄 Switch Database</h1>
   <pre>
+    <!-- 🔄 Change to a specific database -->
     🔄 use &lt;database_name&gt;
   </pre>
 
   <h1>🗃️ Show Collections</h1>
   <pre>
+    <!-- 📋 Show all collections in the current database -->
     📋 show collections
   </pre>
 
   <h1>🚀 Run JavaScript File</h1>
   <pre>
+    <!-- 📜 Load and execute a JavaScript file -->
     📜 load("myScript.js")
   </pre>
 
@@ -37,27 +73,52 @@
 
   <h2>🌱 Create</h2>
   <pre>
+    <!-- 🌱 Insert a single document into the collection -->
     🌱 db.coll.insertOne({name: "Max"})
-    🌱 db.coll.insert([{name: "Max"}, {name:"Alex"}]) // ordered bulk insert
-    🌱 db.coll.insert([{name: "Max"}, {name:"Alex"}], {ordered: false}) // unordered bulk insert
+    
+    <!-- 🌱 Insert multiple documents into the collection (ordered) -->
+    🌱 db.coll.insert([{name: "Max"}, {name:"Alex"}])
+    
+    <!-- 🌱 Insert multiple documents into the collection (unordered) -->
+    🌱 db.coll.insert([{name: "Max"}, {name:"Alex"}], {ordered: false})
+    
+    <!-- 🌱 Insert a document with a date field -->
     🌱 db.coll.insert({date: ISODate()})
+    
+    <!-- 🌱 Insert with a custom write concern -->
     🌱 db.coll.insert({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
   </pre>
 
   <h2>📖 Read</h2>
   <pre>
-    📖 db.coll.findOne() // returns a single document
-    📖 db.coll.find()    // returns a cursor - show 20 results - "it" to display more
+    <!-- 📖 Find a single document -->
+    📖 db.coll.findOne()
+    
+    <!-- 📖 Find documents (returns a cursor) -->
+    📖 db.coll.find()
+    
+    <!-- 📖 Find documents and pretty-print the results -->
     📖 db.coll.find().pretty()
-    📖 db.coll.find({name: "Max", age: 32}) // implicit logical "AND".
+    
+    <!-- 📖 Find documents with multiple conditions (implicit logical "AND") -->
+    📖 db.coll.find({name: "Max", age: 32})
+    
+    <!-- 📖 Find documents with a specific date -->
     📖 db.coll.find({date: ISODate("2020-09-25T13:57:17.180Z")})
-    📖 db.coll.find({name: "Max", age: 32}).explain("executionStats") // or "queryPlanner" or "allPlansExecution"
+    
+    <!-- 📖 Explain query execution statistics -->
+    📖 db.coll.find({name: "Max", age: 32}).explain("executionStats")
+    
+    <!-- 📖 Get distinct values for a field -->
     📖 db.coll.distinct("name")
-    // Count
-    📖 db.coll.count({age: 32})          // estimation based on collection metadata
-    📖 db.coll.estimatedDocumentCount()  // estimation based on collection metadata
-    📖 db.coll.countDocuments({age: 32}) // alias for an aggregation pipeline - accurate count
-    // Comparison
+    
+    <!-- 📖 Count documents matching a condition (estimation) -->
+    📖 db.coll.count({age: 32})
+    
+    <!-- 📖 Count documents using aggregation pipeline (accurate count) -->
+    📖 db.coll.countDocuments({age: 32})
+    
+    <!-- 📖 Comparison operators -->
     📖 db.coll.find({"year": {$gt: 1970}})
     📖 db.coll.find({"year": {$gte: 1970}})
     📖 db.coll.find({"year": {$lt: 1970}})
@@ -65,7 +126,8 @@
     📖 db.coll.find({"year": {$ne: 1970}})
     📖 db.coll.find({"year": {$in: [1958, 1959]}})
     📖 db.coll.find({"year": {$nin: [1958, 1959]}})
-    // Logical
+    
+    <!-- 📖 Logical operators -->
     📖 db.coll.find({name:{$not: {$eq: "Max"}}})
     📖 db.coll.find({$or: [{"year" : 1958}, {"year" : 1959}]})
     📖 db.coll.find({$nor: [{price: 1.99}, {sale: true}]})
@@ -75,92 +137,147 @@
         {$or: [{sale: true}, {price: {$lt: 5 }}]}
       ]
     })
-    // Element
+    
+    <!-- 📖 Element operators -->
     📖 db.coll.find({name: {$exists: true}})
     📖 db.coll.find({"zipCode": {$type: 2 }})
     📖 db.coll.find({"zipCode": {$type: "string"}})
-    // Aggregation Pipeline
+    
+    <!-- 📖 Aggregation Pipeline -->
     📖 db.coll.aggregate([
       {$match: {status: "A"}},
       {$group: {_id: "$cust_id", total: {$sum: "$amount"}}},
       {$sort: {total: -1}}
     ])
-    // Text search with a "text" index
+    
+    <!-- 📖 Text search with a "text" index -->
     📖 db.coll.find({$text: {$search: "cake"}}, {score: {$meta: "textScore"}}).sort({score: {$meta: "textScore"}})
-    // Regex
+    
+    <!-- 📖 Regular expressions -->
     📖 db.coll.find({name: /^Max/})   // regex: starts by letter "M"
     📖 db.coll.find({name: /^Max$/i}) // regex case insensitive
-    // Array
+    
+    <!-- 📖 Array operators -->
     📖 db.coll.find({tags: {$all: ["Realm", "Charts"]}})
     📖 db.coll.find({field: {$size: 2}}) // impossible to index - prefer storing the size of the array & update it
     📖 db.coll.find({results: {$elemMatch: {product: "xyz", score: {$gte: 8}}}})
-    // Projections
+    
+    <!-- 📖 Projections -->
     📖 db.coll.find({"x": 1}, {"actors": 1})               // actors + _id
     📖 db.coll.find({"x": 1}, {"actors": 1, "_id": 0})     // actors
     📖 db.coll.find({"x": 1}, {"actors": 0, "summary": 0}) // all but "actors" and "summary"
-    // Sort, skip, limit
+    
+    <!-- 📖 Sort, skip, limit -->
     📖 db.coll.find({}).sort({"year": 1, "rating": -1}).skip(10).limit(3)
-    // Read Concern
+    
+    <!-- 📖 Read Concern -->
     📖 db.coll.find().readConcern("majority")
   </pre>
 
   <h2>🔄 Update</h2>
   <pre>
-    🔄 db.coll.update({"_id": 1}, {"year": 2016}) // WARNING! Replaces the entire document
+    <!-- 🔄 WARNING! Replaces the entire document -->
+    🔄 db.coll.update({"_id": 1}, {"year": 2016})
+    
+    <!-- 🔄 Update specific fields using $set -->
     🔄 db.coll.update({"_id": 1}, {$set: {"year": 2016, name: "Max"}})
+    
+    <!-- 🔄 Remove a field using $unset -->
     🔄 db.coll.update({"_id": 1}, {$unset: {"year": 1}})
-    🔄 db.coll.update({"_id": 1}, {$rename: {"year": "date"} })
+    
+    <!-- 🔄 Rename a field using $rename -->
+    🔄 db.coll.update({"_id": 1}, {$rename: {"year": "date"}})
+    
+    <!-- 🔄 Increment a numeric field using $inc -->
     🔄 db.coll.update({"_id": 1}, {$inc: {"year": 5}})
+    
+    <!-- 🔄 Multiply numeric fields using $mul -->
     🔄 db.coll.update({"_id": 1}, {$mul: {price: NumberDecimal("1.25"), qty: 2}})
+    
+    <!-- 🔄 Set a minimum value for a field using $min -->
     🔄 db.coll.update({"_id": 1}, {$min: {"imdb": 5}})
+    
+    <!-- 🔄 Set a maximum value for a field using $max -->
     🔄 db.coll.update({"_id": 1}, {$max: {"imdb": 8}})
+    
+    <!-- 🔄 Set a field to the current date using $currentDate -->
     🔄 db.coll.update({"_id": 1}, {$currentDate: {"lastModified": true}})
+    
+    <!-- 🔄 Set a field to the current date with a specific type using $currentDate -->
     🔄 db.coll.update({"_id": 1}, {$currentDate: {"lastModified": {$type: "timestamp"}}})
-
-    // Array
+    
+    <!-- 🔄 Update an array field using $push -->
     🔄 db.coll.update({"_id": 1}, {$push :{"array": 1}})
+    
+    <!-- 🔄 Remove an element from an array using $pull -->
     🔄 db.coll.update({"_id": 1}, {$pull :{"array": 1}})
+    
+    <!-- 🔄 Add an element to an array using $addToSet -->
     🔄 db.coll.update({"_id": 1}, {$addToSet :{"array": 2}})
+    
+    <!-- 🔄 Remove the first or last element from an array using $pop -->
     🔄 db.coll.update({"_id": 1}, {$pop: {"array": 1}})  // last element
     🔄 db.coll.update({"_id": 1}, {$pop: {"array": -1}}) // first element
+    
+    <!-- 🔄 Remove multiple elements from an array using $pullAll -->
     🔄 db.coll.update({"_id": 1}, {$pullAll: {"array" :[3, 4, 5]}})
+    
+    <!-- 🔄 Add multiple elements to an array using $push with $each -->
     🔄 db.coll.update({"_id": 1}, {$push: {scores: {$each: [90, 92, 85]}}})
+    
+    <!-- 🔄 Update specific element in an array using the positional operator $ -->
     🔄 db.coll.updateOne({"_id": 1, "grades": 80}, {$set: {"grades.$": 82}})
+    
+    <!-- 🔄 Update all elements in an array using the $[] operator -->
     🔄 db.coll.updateMany({}, {$inc: {"grades.$[]": 10}})
+    
+    <!-- 🔄 Update specific elements in an array using arrayFilters -->
     🔄 db.coll.update({}, {$set: {"grades.$[element]": 100}}, {multi: true, arrayFilters: [{"element": {$gte: 100}}]})
-
-    // Update many
+    
+    <!-- 🔄 Update multiple documents matching a condition -->
     🔄 db.coll.update({"year": 1999}, {$set: {"decade": "90's"}}, {"multi":true})
+    
+    <!-- 🔄 Update multiple documents using updateMany -->
     🔄 db.coll.updateMany({"year": 1999}, {$set: {"decade": "90's"}})
-
-    // FindOneAndUpdate
+    
+    <!-- 🔄 FindOneAndUpdate with returnNewDocument -->
     🔄 db.coll.findOneAndUpdate({"name": "Max"}, {$inc: {"points": 5}}, {returnNewDocument: true})
-
-    // Upsert
+    
+    <!-- 🔄 Upsert - Insert or update if document exists -->
     🔄 db.coll.update({"_id": 1}, {$set: {item: "apple"}, $setOnInsert: {defaultQty: 100}}, {upsert: true})
-
-    // Replace
+    
+    <!-- 🔄 Replace a document completely -->
     🔄 db.coll.replaceOne({"name": "Max"}, {"firstname": "Maxime", "surname": "Beugnet"})
-
-    // Save
+    
+    <!-- 🔄 Save a document - insert or update if _id exists -->
     🔄 db.coll.save({"item": "book", "qty": 40})
-
-    // Write concern
+    
+    <!-- 🔄 Write concern for update operations -->
     🔄 db.coll.update({}, {$set: {"x": 1}}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
   </pre>
 
   <h2>🗑️ Delete</h2>
   <pre>
+    <!-- 🗑️ Remove documents matching a condition -->
     🗑️ db.coll.remove({name: "Max"})
-    🗑️ db.coll.remove({}) // WARNING! Deletes all the docs but not the collection itself and its index definitions
+    
+    <!-- 🗑️ WARNING! Deletes all documents in the collection -->
+    🗑️ db.coll.remove({})
+    
+    <!-- 🗑️ Remove documents with write concern -->
     🗑️ db.coll.remove({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
+    
+    <!-- 🗑️ FindOneAndDelete - Find and delete a single document -->
     🗑️ db.coll.findOneAndDelete({"name": "Max"})
   </pre>
 
   <h2>🧹 Databases and Collections</h2>
   <pre>
-    🧹 db.coll.drop()    // removes the collection and its index definitions
-    🧹 db.dropDatabase() // double check that you are *NOT* on the PROD cluster... :-)
+    <!-- 🧹 Remove a collection and its index definitions -->
+    🧹 db.coll.drop()
+    
+    <!-- 🧹 WARNING! Remove the entire database -->
+    🧹 db.dropDatabase()
   </pre>
 </body>
 </html>
