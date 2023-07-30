@@ -4,7 +4,7 @@
 </head>
 <body>
   <h1>🌟 Connect to MongoDB Shell</h1>
-  <pre><h2>
+  <pre><h3>
     <!-- 🚀 Connect to the default MongoDB instance -->
     🚀 mongo
     
@@ -16,39 +16,39 @@
     
     <!-- 🚀 Connect to MongoDB Atlas -->
     🚀 mongo "mongodb+srv://cluster-name.abcde.mongodb.net/&lt;dbname&gt;" --username &lt;username&gt;
-  <h2></pre>
+  <h3></pre>
 
   <h1>📚 Show Databases</h1>
-  <pre><h2>
+  <pre><h3>
     <!-- 🎯 Show all available databases -->
     🎯 show dbs
     
     <!-- 🎯 Print the current database -->
     🎯 db
-  <h2></pre>
+  <h3></pre>
 
   <h1>🔄 Switch Database</h1>
-  <pre><h2>
+  <pre><h3>
     <!-- 🔄 Change to a specific database -->
     🔄 use &lt;database_name&gt;
-  <h2></pre>
+  <h3></pre>
 
   <h1>🗃️ Show Collections</h1>
-  <pre><h2>
+  <pre><h3>
     <!-- 📋 Show all collections in the current database -->
     📋 show collections
-  <h2></pre>
+  <h3></pre>
 
   <h1>🚀 Run JavaScript File</h1>
-  <pre><h2>
+  <pre><h3>
     <!-- 📜 Load and execute a JavaScript file -->
     📜 load("myScript.js")
-  <h2></pre>
+  <h3></pre>
 
   <h1>📝 CRUD Operations</h1>
 
-  <h2>🌱 Create</h2>
-  <pre><h2>
+  <h3>🌱 Create</h2>
+  <pre><h3>
     <!-- 🌱 Insert a single document into the collection -->
     🌱 db.coll.insertOne({name: "Max"})
     
@@ -63,10 +63,10 @@
     
     <!-- 🌱 Insert with a custom write concern -->
     🌱 db.coll.insert({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
-  <h2></pre>
+  <h3></pre>
 
-  <h2>📖 Read</h2>
-  <pre><h2>
+  <h3>📖 Read</h2>
+  <pre><h3>
     📖 db.coll.find().pretty() <!-- Find documents and pretty-print the results -->
     📖 db.coll.find({name: "Max", age: 32}) <!-- Find documents with multiple conditions (implicit logical "AND") -->
     📖 db.coll.find({date: ISODate("2020-09-25T13:57:17.180Z")}) <!-- Find documents with a specific date -->
@@ -129,10 +129,10 @@
     
     <!-- 📖 Read Concern -->
     📖 db.coll.find().readConcern("majority")
-  <h2></pre>
+  <h3></pre>
 
-  <h2>🔄 Update</h2>
-  <pre><h2>
+  <h3>🔄 Update</h2>
+  <pre><h3>
     <!-- 🔄 WARNING! Replaces the entire document -->
     🔄 db.coll.update({"_id": 1}, {"year": 2016})
     
@@ -211,10 +211,10 @@
     
     <!-- 🔄 Write concern for update operations -->
     🔄 db.coll.update({}, {$set: {"x": 1}}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
-  <h2></pre>
+  <h3></pre>
 
-  <h2>🗑️ Delete</h2>
-  <pre><h2>
+  <h3>🗑️ Delete</h2>
+  <pre><h3>
     <!-- 🗑️ Remove documents matching a condition -->
     🗑️ db.coll.remove({name: "Max"})
     
@@ -226,15 +226,15 @@
     
     <!-- 🗑️ FindOneAndDelete - Find and delete a single document -->
     🗑️ db.coll.findOneAndDelete({"name": "Max"})
-  <h2></pre>
+  <h3></pre>
 
-  <h2>🧹 Databases and Collections</h2>
-  <pre><h2>
+  <h3>🧹 Databases and Collections</h2>
+  <pre><h3>
     <!-- 🧹 Remove the collection and its index definitions -->
     🧹 db.coll.drop()
     
     <!-- 🧹 WARNING! Remove the entire database -->
     🧹 db.dropDatabase()
-  <h2></pre>
+  <h3></pre>
 </body>
 </html>
