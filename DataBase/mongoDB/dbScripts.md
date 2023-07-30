@@ -6,20 +6,24 @@ mongo --host <host> --port <port> -u <user> -p <pwd> # omit the password if you 
 mongo "mongodb://192.168.1.1:27017"
 mongo "mongodb+srv://cluster-name.abcde.mongodb.net/<dbname>" --username <username> # MongoDB Atlas
 
-
+---
 ### Show Databases
 show dbs
 db // prints the current database
+---
 
 ### Switch Database
 use <database_name>
+---
 
 ### Show Collections
 show collections
+---
 
 
 ### Run JavaScript File
 load("myScript.js")
+---
 
 
 
@@ -31,6 +35,7 @@ db.coll.insert([{name: "Max"}, {name:"Alex"}]) // ordered bulk insert
 db.coll.insert([{name: "Max"}, {name:"Alex"}], {ordered: false}) // unordered bulk insert
 db.coll.insert({date: ISODate()})
 db.coll.insert({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
+---
 
 ### Read
 
@@ -103,6 +108,7 @@ db.coll.find({}).sort({"year": 1, "rating": -1}).skip(10).limit(3)
 db.coll.find().readConcern("majority")
 
 
+---
 
 ### Update
 
@@ -147,6 +153,7 @@ db.coll.save({"item": "book", "qty": 40})
 
 // Write concern
 db.coll.update({}, {$set: {"x": 1}}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
+---
 
 
 ### Delete
@@ -156,6 +163,7 @@ db.coll.remove({name: "Max"}, {justOne: true})
 db.coll.remove({}) // WARNING! Deletes all the docs but not the collection itself and its index definitions
 db.coll.remove({name: "Max"}, {"writeConcern": {"w": "majority", "wtimeout": 5000}})
 db.coll.findOneAndDelete({"name": "Max"})
+---
 
 
 # **Databases and Collections**
@@ -165,6 +173,7 @@ db.dropDatabase() // double check that you are *NOT* on the PROD cluster... :-)
 
 
 
+---
 
 
 
