@@ -21,11 +21,11 @@ To break this down even further, I’ll visualize each step to add a practical a
 
 ![](https://raw.githubusercontent.com/entbappy/Branching-tutorial/master/fast-rcnn/image-10.png)
 
-- This image is passed to a ConvNet which returns the region of interests accordingly:
+- This image is passed to a ConvNet which returns the region of interests accordingly(Also known as ROI projection):
 
 ![](https://raw.githubusercontent.com/entbappy/Branching-tutorial/master/fast-rcnn/image-11.png)
 
-- Then we apply the RoI pooling layer to the extracted regions of interest to make sure all the regions are of the same size:
+- Then we apply the RoI pooling layer to the extracted regions of interest to make sure all the regions are of the same size(Also known as ROI pooling):
 
 ![](https://raw.githubusercontent.com/entbappy/Branching-tutorial/master/fast-rcnn/image-14.png)
 
