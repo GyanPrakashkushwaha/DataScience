@@ -71,7 +71,10 @@ This is a refinement step. A bounding box given by selective search is represent
 
 R-CNN is trained on ILSVRC2013 dataset. ILSVRC stands for ImageNet Large Scale Visual Recognition Challenge. The dataset is split into train (395918 images), val (20121 images) and test (40152 images) sets.
 
-Three types of training occur in R-CNN. 1) CNN fine-tuning 2) SVM training 3) bounding box regressor training.
+Three types of training occur in R-CNN:
+1) CNN fine-tuning
+2) SVM training
+3) bounding box regressor training.
 
 At test time, we again obtain 2K region proposals for every image, warp them, feed them to CNN, get their score from SVMs, and then R-CNN uses something called as NMS (Non-maximum suppression) to reject unwanted region proposals. An object may have been detected by more than one region proposal. NMS will consider only those proposals that have higher SVM score than its learned threshold. NMS will also reject a region if it has overlap (IoU) with another region having a higher SVM score. This way we get the best region proposal for a given object.
 
