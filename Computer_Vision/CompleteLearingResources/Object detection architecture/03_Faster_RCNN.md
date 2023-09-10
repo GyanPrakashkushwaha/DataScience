@@ -2,6 +2,8 @@
 
 Faster RCNN : <a href="https://arxiv.org/abs/1506.01497" target="_blank">Paper address </a>
 
+# BIG PICTURE
+![Faster RCNN](<Faster RCNN-1.png>)
 Faster-rcnn is one of the most classic algorithms in the field of object detection. It mainly consists of two parts. One is a deep full convolutional network for generating candidate area frames, and the other is a Fast R-CNN detection model. The two share parameters during training.
 
 
