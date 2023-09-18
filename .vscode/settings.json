@@ -1,3 +1,8 @@
 {
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "files.associations": {
+        "*.py": "python",
+        "*.js": "javascript",
+        "iostream": "cpp"
+    }
 }

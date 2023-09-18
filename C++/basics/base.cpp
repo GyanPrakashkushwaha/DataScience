@@ -1,5 +1,9 @@
 #include<iostream>
 using namespace std;
 int main(){
-    cout<<"hello world";
+    float y,g = 50;
+    cout<<g;
+    cin>>y;
 }
+
+
