@@ -44,6 +44,8 @@ But there’s yet another object detection algorithm that trumps Fast RCNN. And 
 ## Paper
 [Link](https://arxiv.org/pdf/1504.08083.pdf)
 
+## Fast RCNN Complete architecture.
+![Complete architecture](image.png)
 
 # Othere Images
 ![](https://miro.medium.com/v2/resize:fit:828/format:webp/1*jYDMaYeH-TrcoofDqCdxug.jpeg)
