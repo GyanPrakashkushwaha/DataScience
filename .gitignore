@@ -1,4 +1,5 @@
-
+# ignore file
+IITM
 # ignoring SECRET KEY
 NLP/langchain/secretKey.py
 NLP/LSTM/stock_price_prediction/api_key.py
