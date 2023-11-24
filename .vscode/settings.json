@@ -4,5 +4,6 @@
         "*.py": "python",
         "*.js": "javascript",
         "iostream": "cpp"
-    }
+    },
+    "python.analysis.autoImportCompletions": true
 }
